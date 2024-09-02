@@ -6,6 +6,16 @@ export const CarritoPage = () => {
   //TRAE LAS FUNCIONALIDADES DE DEL CONTEXTO ESPECIFICADO 
   const {listCompras,agregarCompra,aumentarCantidad,disminuirCantidad,eliminarCompra} = useContext(CarritoContext)
 
+  //FUNCION QUE CALCULA EL TOTAL EN EL CARRITO DE COMPRAS
+  const calcularTotal=()=>{
+    return listCompras.reduce((total,item)=> total+ item.price * item.cantidad, 0 ).toFixed(2)
+  }
+
+  //PARA SIMULAR UNA IMPRESION DE LA COMPRA
+  const handleImpresion=()=>{
+    print()
+  }
+
   return (
     <>
       <table class="table">
@@ -38,11 +48,14 @@ export const CarritoPage = () => {
             ))
           }
 
-         
+          <th><b>TOTAL: </b></th>
+            <td></td>
+            <td></td>
+            <td>${calcularTotal()} </td>
         </tbody>
       </table>
       <div className="d-grid gap-2">
-        <button className="btn btn-primary">COMPRAR</button>
+        <button className="btn btn-primary" onClick={handleImpresion} disabled={listCompras<1} >COMPRAR</button>
       </div>
     </>
   );

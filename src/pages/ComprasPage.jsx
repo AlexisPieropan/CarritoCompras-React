@@ -9,7 +9,7 @@ export const ComprasPage = () => {
     const {productos} = useContext( ProductosContext )
 
   //TRAE LAS FUNCIONALIDADES DE DEL CONTEXTO ESPECIFICADO 
-  const {listCompras,agregarCompra,aumentarCantidad,disminuirCantidad,eliminarCompra} = useContext(CarritoContext)
+  const {agregarCompra,eliminarCompra} = useContext(CarritoContext)
 
 
   //FUNCIONES en la card
@@ -21,13 +21,6 @@ export const ComprasPage = () => {
     eliminarCompra(id)
   }
 
-  const handleAumentar=(id)=>{
-
-  }
-
-  const handleDisminuir=(id)=>{
-
-  }
 
 
     return (
